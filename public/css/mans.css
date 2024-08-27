@@ -1,0 +1,13 @@
+.cardd{
+    transform: all 0.3s;
+    margin-left: 5pc;
+    margin-top: 3pc;
+    
+    width: 60pc;
+    height: 60pc;
+    
+}
+
+.cardd:hover{
+    transform: scale(1.10);
+}

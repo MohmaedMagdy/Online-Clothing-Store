@@ -1,0 +1,34 @@
+.icon{
+    width: 12rem;
+}
+
+body{
+    color: white;
+}
+.navbar .nav-link,
+.navbar .navbar-brand {
+    color: rgb(255, 255, 255) !important;
+    margin-right: 3pc;
+ 
+}
+.title{
+    margin-left: 10pc;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+   justify-content: center;
+   
+
+}
+
+.footer {
+    background-color: #000000;
+    padding: 20px 0;
+    color: #ffffff;
+
+}
+.footer a {
+    color: #007bff;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+

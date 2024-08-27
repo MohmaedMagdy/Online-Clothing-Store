@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 14pc;
+    background-color: #f8f9fa;
+}
+.card {
+    width: 100%;
+    max-width: 450px;
+    margin-top: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-header {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+}
+.btn-primary {
+    width: 100%;
+}

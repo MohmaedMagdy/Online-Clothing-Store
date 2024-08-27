@@ -1,0 +1,10 @@
+.cardd{
+    transform: all 0.3s;
+    margin-left: 5pc;
+    margin-top: 3pc;
+    
+}
+
+.cardd:hover{
+    transform: scale(1.15);
+}

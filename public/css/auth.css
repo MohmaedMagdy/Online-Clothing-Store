@@ -1,0 +1,12 @@
+
+.container {
+    max-width: 600px;
+    /* margin: auto; */
+    
+}
+.btn-primary {
+    margin-right: 1rem;
+}
+.admin-link {
+    margin-left: auto;
+}
