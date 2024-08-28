@@ -6,14 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Our Products</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <style>
-        .table {
-            width: 90%;
-            text-align: center;
-            margin-left: 5%;
-            margin-top: 2%;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/dash.css') }}">
+
 </head>
 <body>
     @if(session('success'))

@@ -10,7 +10,7 @@ class OrderController extends Controller
     public function customerOrders()
     {
         $orders = order::all();
-        return view('order', compact('orders'));
+        return view('Admin.order', compact('orders'));
     }
 
     public function checkout()
@@ -23,7 +23,7 @@ class OrderController extends Controller
         }
 
 
-        return view('customer', compact('cart'));
+        return view('User.customer', compact('cart'));
     }
 
     public function store(Request $request)
@@ -57,6 +57,6 @@ class OrderController extends Controller
 
     public function showThankYouPage()
     {
-        return view('thankyou');
+        return view('User.thankyou');
     }
 }

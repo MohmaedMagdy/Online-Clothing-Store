@@ -18,8 +18,6 @@
       <div class="card-body">
         <form action="{{ url('/form') }}" method="POST" enctype="multipart/form-data">
           @csrf
-          
-          <!-- Client Name -->
           <div class="form-group mb-4">
             <label for="client_name" class="form-label">Client Name</label>
             <input id="client_name" type="text" name="client_name" value="{{ old('client_name') }}" class="form-control @error('client_name') is-invalid @enderror" required>
@@ -29,8 +27,6 @@
               </div>
             @enderror
           </div>
-
-          <!-- Product Details -->
           @if($cart)
             @foreach($cart as $id => $details)
               <div class="mb-4">
@@ -58,8 +54,6 @@
               </div>
             @endforeach
           @endif
-
-          <!-- Payment Method -->
           <div class="form-group mb-4">
             <label for="payment" class="form-label">Payment Method</label>
             <select id="payment" name="payment" class="form-select @error('payment') is-invalid @enderror" required>
@@ -73,13 +67,11 @@
               </div>
             @enderror
           </div>
-    
           <button type="submit" class="btn btn-primary w-100">Submit</button>
         </form>
       </div>
     </div>
   </div>
-  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

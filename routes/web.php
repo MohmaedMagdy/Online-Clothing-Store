@@ -5,6 +5,7 @@ use App\Http\Controllers\authPost;
 use App\Http\Controllers\logincontroller;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProfileController;
 
 
 
@@ -51,9 +52,17 @@ Route::post('/auth', [authPost::class,'store']);
 
 
 #OrderController:
+
 Route::get('/orders', [OrderController::class, 'customerOrders']);
 Route::get('/check', [OrderController::class, 'checkout']);
 Route::get('/thankyou', [OrderController::class, 'showThankYouPage']);
 Route::post('/form', [OrderController::class, 'store']);
+
+
+//ProfileController:
+Route::get('/profile', [ProfileController::class, 'show']);
+Route::get('/update/{id}', [ProfileController::class, 'show_update']);
+Route::put('/put/{id}', [ProfileController::class, 'update']);
+Route::delete('/delete/{id}', [ProfileController::class, 'destroy']);
 
 

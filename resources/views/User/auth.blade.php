@@ -68,7 +68,7 @@
                 <button type="submit" class="btn btn-primary">
                     {{ __('Register') }}
                 </button>
-                <a href="{{ url('/login') }}" class="btn btn-dark admin-link">I Admin</a>
+                <a href="{{ url('/login') }}" class="btn btn-secondary">I Admin</a>
             </div>
         </form>
     </div>

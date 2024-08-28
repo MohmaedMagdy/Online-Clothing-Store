@@ -9,7 +9,7 @@ class logincontroller extends Controller
     public function logincreate()
     {
         $log = loginmodel::all();
-        return view('login', compact('log'));
+        return view('Admin.login', compact('log'));
     }
 
     /**

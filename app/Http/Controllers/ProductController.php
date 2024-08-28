@@ -13,45 +13,40 @@ class ProductController extends Controller
     public function index()
     {
         $product = item::all();
-        return view('dashboard', compact('product'));
+        return view('Admin.dashboard', compact('product'));
     }
 
     public function fqa(){
-        return view('FQA');
+        return view('User.FQA');
     }
 
     public function prodcart()
     {
-        return view('car');
+        return view('User.car');
     }
    
 
     public function add()
     {
-        return view('addproduct');
+        return view('Admin.addproduct');
     }
 
     public function man()
     {
         $men = item::where('category', 'men')->get();
-        return view('clothestype.mans', compact('men'));
+        return view('Clothestype.mans', compact('men'));
     }
     public function woman()
     {
         $women = item::where('category', 'women')->get();
-        return view('clothestype.womans', compact('women'));
+        return view('Clothestype.womans', compact('women'));
     }
     public function kides()
     {
         $children = item::where('category', 'children')->get();
-        return view('clothestype.kides', compact('children'));
+        return view('Clothestype.kides', compact('children'));
     }
 
-
-    public function userIndex(){
-        $tickets = item::all()->where('userId' ,Auth::user()->id );
-        return view('user.index', compact('tickets'));
-    }
     public function store(Request $request)
     {
         $request->validate([
