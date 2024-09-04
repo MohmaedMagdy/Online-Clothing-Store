@@ -10,6 +10,11 @@
 </head>
 
 <body>
+    @if(session('success'))
+    <div class="alert alert-success mt-3">
+        {{ session('success') }}
+    </div>
+    @endif
     <div class="container mt-5">
         <h2 class="mb-4">Complete the Form</h2>
         <form method="POST" action="{{ url('/auth') }}">

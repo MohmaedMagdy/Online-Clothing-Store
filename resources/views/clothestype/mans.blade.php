@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('body')
+
 <div class="container mt-5">
     <h2 class="text-center mb-5">Men's Clothing</h2>
     <div class="row">

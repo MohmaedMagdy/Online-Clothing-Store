@@ -22,29 +22,27 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Profile Information</h4>
-                @foreach ($users as $user)
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <strong>Name:</strong> {{$user['name']}}
-                        </li>
-                        <li class="list-group-item">
-                            <strong>Email:</strong> {{$user['email']}}
-                        </li>
-                        <li class="list-group-item">
-                            <strong>Phone:</strong> {{$user['phone']}}
-                        </li>
-                        <li class="list-group-item">
-                            <strong>Password:</strong> {{$user['password']}}
-                        </li>
-                    </ul>
-                @endforeach
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Name:</strong> {{ $user->name }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Email:</strong> {{ $user->email }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Phone:</strong> {{ $user->phone }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Password:</strong> {{ $user->password }}
+                    </li>
+                </ul>
             </div>
         </div>
 
-        <div class="card">
+        <div class="card mt-3">
             <div class="card-body">
                 <h4 class="card-title">Actions</h4>
-                <a href="{{ url('/update/' . $user['id']) }}" class="btn btn-primary">Edit Profile</a>
+                <a href="{{ url('/update/' . $user->id) }}" class="btn btn-primary">Edit Profile</a>
                 <form action="{{ url('/delete/' . $user->id) }}" method="POST" class="d-inline">
                     @csrf
                     @method('DELETE')

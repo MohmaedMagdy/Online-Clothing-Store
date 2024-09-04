@@ -11,9 +11,10 @@ class ProfileController extends Controller
 {
     public function show()
     {
-        $users = register::all(); 
-        return view('Profile.show', compact('users'));
+        $user = register::latest()->first();
+        return view('Profile.show', compact('user'));
     }
+
 
     public function show_update($id)
     {
@@ -25,12 +26,12 @@ class ProfileController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users,email,' . $id, // Change 'register' to 'users'
+            'email' => 'required|email|max:255|unique:users,email,' . $id, 
             'phone' => 'required|string|max:15',
             'password' => 'nullable|confirmed|min:8',
         ]);
     
-        $user = register::findOrFail($id); // Change 'register' to 'User' (assuming you're using the User model)
+        $user = register::findOrFail($id); 
     
         $user->name = $request->input('name');
         $user->email = $request->input('email');
@@ -47,7 +48,6 @@ class ProfileController extends Controller
 
     public function destroy($id)
     {
-        register::destroy($id); 
         return redirect('/')->with('success', 'Profile deleted successfully.');
     }
   
