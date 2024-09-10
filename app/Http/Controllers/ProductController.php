@@ -90,7 +90,7 @@ class ProductController extends Controller
 
         session()->put('cart', $cart);
 
-        return redirect()->back()->with('success', 'Product has been added to cart!');
+        return redirect()->back();
     }
 
 
@@ -103,7 +103,7 @@ class ProductController extends Controller
             session()->put('cart', $cart);
         }
 
-        return redirect('/shopping')->with('success', 'Cart updated successfully.');
+        return redirect('/shopping');
     }
 
 
@@ -116,7 +116,7 @@ class ProductController extends Controller
             session()->put('cart', $cart);
         }
 
-        return redirect('/shopping')->with('success', 'Item removed successfully.');
+        return redirect('/shopping');
     }
     
 }

@@ -1,22 +1,26 @@
 @extends('layout')
 @section('body')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>Document</title>
+   @if(session('success'))
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            Swal.fire({
+                title: 'Success!',
+                text: '{{ session('success') }}',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        });
+    </script>
+    @endif
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
-</head>
-<body>
+
    <video autoplay loop muted plays-inline class="back-video">
       <source src="https://assets.mixkit.co/videos/33167/33167-720.mp4" type="video/mp4">
 </video>
    <div class="container-fuild">
       <div class="row">
-         <div class="col-sm-12" style="margin-top: 14pc;text-align:center">
+         <div class="col-sm-12 massage display-4" >
             <h1 class="text-white">We're delighted to have you here at magdy</br>
                You will always find what you want here at excellent prices</br> and high precision quality! </h1>
          </div>
@@ -53,44 +57,42 @@
              </div>
          </div>
      </div>
-     
-      <div class="row" style="margin-top: 28pc">
-         <h1 class="text-center mb-5">Our products</h1>
-         <div class="col-sm-6">
-            <div class=" mb-3">
-               <img src="https://img.freepik.com/premium-photo/sale-shopping-fashion-style-people-concept-elegant-young-man-suit-mall-clothing-store_255667-70928.jpg?w=900" class="card-img-top" alt="...">
-               <div class="card-body">
-               </br>
-                 <h5 class="card-title">Men's section</h5>
-                 <p class="card-text">You can find everything you want of high quality and reasonable prices in the men's section here</p>
-               </div>
-             </div>
-         </div>
-         <div class="col-sm-6">
-            <div class=" mb-3">
-               <img src="https://www.fameaccessories.com/blog/wp-content/uploads/2024/05/where-to-buy-clothes-to-start-a-boutique.jpg" class="card-img-top" alt="...">
-               <div class="card-body">
-               </br>
-                 <h5 class="card-title">Women's  section</h5>
-                 <p class="card-text">You can find everything you want of high quality and reasonable prices in the Women's  section here</p>
-               </div>
-             </div>
-         </div>
+     <div class="container my-5">
+      <h1 class="text-center mb-5" style="margin-top: 30pc">Our Products</h1>
+      <div class="row">
+         
+          <div class="col-md-6 mb-4">
+              <div class="card shadow-lg border-0 rounded-lg overflow-hidden">
+                  <img src="https://img.freepik.com/premium-photo/sale-shopping-fashion-style-people-concept-elegant-young-man-suit-mall-clothing-store_255667-70928.jpg?w=900" class="card-img-top" alt="Men's Section">
+                  <div class="card-body text-center">
+                      <h5 class="card-title fs-4 fw-bold">Men's Section</h5>
+                      <p class="card-text fs-6 text-muted">Discover high-quality apparel at great prices in our men's section. Find everything you need right here!</p>
+                  </div>
+              </div>
+          </div>
+        
+          <div class="col-md-6 mb-4">
+              <div class="card shadow-lg border-0 rounded-lg overflow-hidden">
+                  <img src="https://www.fameaccessories.com/blog/wp-content/uploads/2024/05/where-to-buy-clothes-to-start-a-boutique.jpg" class="card-img-top" alt="Women's Section">
+                  <div class="card-body text-center">
+                      <h5 class="card-title fs-4 fw-bold">Women's Section</h5>
+                      <p class="card-text fs-6 text-muted">Explore our women's section for elegant and stylish clothing at reasonable prices. Find your perfect outfit today!</p>
+                  </div>
+              </div>
+          </div>
       </div>
-        <div class="row">
-         <div class="col-sm-12">
-            <div class=" mb-3" style="width: 54pc; margin-left: 33pc; margin-top:1pc; ">
-               <img src="https://res.cloudinary.com/north-six/image/upload/v1627915071/Zara_Kids_Workwear_1_8b1798040f.jpg" class="card-img-top" alt="...">
-               <div class="card-body">
-               </br>
-                 <h5 class="card-title">Kids  section</h5>
-                 <p class="card-text">You can find everything you want with high quality and reasonable prices for your children in the children's section</p>
-               </div>
-             </div>
-         </div>
-        </div>
-   </div>
 
-</body>
-</html>
+      <div class="row">
+          <div class="col-12 mb-4">
+              <div class="card shadow-lg border-0  mx-auto" style="max-width: 800px;">
+                  <img src="https://res.cloudinary.com/north-six/image/upload/v1627915071/Zara_Kids_Workwear_1_8b1798040f.jpg" class="card-img" alt="Kids' Section"  style="width: 800px">
+                  <div class="card-body text-center">
+                      <h5 class="card-title fs-4 fw-bold">Kids' Section</h5>
+                      <p class="card-text fs-6 text-muted">Find high-quality and affordable clothing for your children in our kids' section. Discover the perfect pieces for your little ones!</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
 @endsection

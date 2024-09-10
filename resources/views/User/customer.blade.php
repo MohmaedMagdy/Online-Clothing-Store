@@ -7,7 +7,8 @@
   <title>Order Form</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{ asset('css/customer.css') }}">
-
+  <!-- SweetAlert2 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
   <div class="container mt-5">
@@ -16,7 +17,7 @@
         <h1 class="card-title">Order Form</h1>
       </div>
       <div class="card-body">
-        <form action="{{ url('/form') }}" method="POST" enctype="multipart/form-data">
+        <form id="orderForm" action="{{ url('/form') }}" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="form-group mb-4">
             <label for="client_name" class="form-label">Client Name</label>
@@ -73,5 +74,22 @@
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- SweetAlert2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+  <script>
+    document.getElementById('orderForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+      Swal.fire({
+        title: 'Success!',
+        text: 'Your order has been placed.',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.submit(); // Submit the form after the alert is confirmed
+        }
+      });
+    });
+  </script>
 </body>
 </html>

@@ -34,7 +34,7 @@ class AuthPost extends Controller
         ]);
 
       
-        return redirect('/welcome')->with('success', 'Registration successful!');
+        return redirect('/welcome');
 
       
     }

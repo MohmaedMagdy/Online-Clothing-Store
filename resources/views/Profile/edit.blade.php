@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Edit Profile</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-   <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
 </head>
 <body>
     <div class="container">
@@ -23,7 +24,7 @@
                         </ul>
                     </div>
                 @endif
-                <form action="{{ url('/put/' . $data->id) }}" method="POST">
+                <form id="edit-profile-form" action="{{ url('/put/' . $data->id) }}" method="POST">
                     @csrf
                     @method('PUT')
 
@@ -59,5 +60,28 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('edit-profile-form');
+            
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+                
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: 'Do you want to update your profile with these changes?',
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, update it!',
+                    cancelButtonText: 'No, cancel'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit(); // Submit the form if confirmed
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

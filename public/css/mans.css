@@ -1,16 +1,97 @@
-.cardd{
-    transform: all 0.3s;
-    margin-left: 5pc;
-    margin-top: 3pc;
-    
-    width: 60pc;
-    height: 60pc;
-    
+
+.container {
+    max-width: 1120px;
+    padding: 20px;
 }
 
-.cardd img:hover{
-    transform: scale(1.10);
+h2 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    color: #34495e;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
 }
+
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    background-color: #f7f9f9;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 400px;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+    filter: brightness(85%);
+}
+
+.card-img-top:hover {
+    transform: scale(1.05);
+    filter: brightness(100%);
+}
+
+.card-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 12px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    border: none;
+    font-size: 1rem;
+    padding: 12px 20px;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    color: #fff;
+    width: 100%;
+}
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-img-top {
+        height: 180px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    h2 {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    .btn-primary {
+        font-size: 0.95rem;
+        padding: 10px 16px;
+    }
+}
+
+
 .alert-success {
     font-size: 1.2rem;
     font-weight: bold;

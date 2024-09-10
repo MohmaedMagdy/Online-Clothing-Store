@@ -1,6 +1,8 @@
 @extends('layout')
 
 @section('body')
+<link rel="stylesheet" href="{{ asset('css/womans.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 <div class="container mt-5">
     <h2 class="text-center mb-5">Women's Clothing</h2>
     <div class="row">
@@ -12,7 +14,7 @@
                         <h5 class="card-title">{{ $product->name }}</h5>
                         <p class="card-text">Price: {{ $product->price }} EPG</p>
                         <div class="mt-auto">
-                            <a href="{{ url('/prod', $product->id) }}" class="btn btn-primary w-100">Add to Cart</a>
+                            <a href="{{ url('/prod', $product->id) }}" class="btn btn-primary w-100 add-to-cart" data-product="{{ $product->name }}">Add to Cart</a>
                         </div>
                     </div>
                 </div>
@@ -24,4 +26,23 @@
         @endforelse
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                Swal.fire({
+                    title: 'Added to Cart',
+                    text: `The product "${this.getAttribute('data-product')}" has been added to your cart.`,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    window.location.href = this.href;
+                });
+            });
+        });
+    });
+</script>
 @endsection

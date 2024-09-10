@@ -7,6 +7,32 @@
         <title>Laravel</title>
         <link rel="stylesheet" href="{{ asset('css/home.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <Style>
+                  body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar-brand {
+            color: #ffffff;
+            font-size: 1.75rem;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-link {
+            color: #ffffff;
+            margin-right: 1rem;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #e9ecef;
+        }
+        .navbar-toggler-icon {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICA8cGF0aCBkPSJNMiAyIEwgMTYgMiBMIDE2IDEwIEwgMiAyIiBzdHJva2U9IiM2NjYiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXRpb249InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1kYXNoYXJyYXk9IjAgMyAxNiAxNiIgc3Ryb2tlLW1vc3RpYy1saW5lPSJyb3VuZCIvPjwvcGF0aD4KPC9zdmc+');
+        }
+
+        </Style>
     </head>
     <body class="body">
         <div class="container-fuild">
@@ -19,19 +45,19 @@
                       </button>
                       <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                          <li class="nav-item" style="margin-right: 2.5pc;"style="color: white">
+                          <li class="nav-item" style="margin-right: 5pc;"style="color: white">
                             <a class="nav-link"  aria-current="page"  href="{{url('/welcome')}}">Home</a>
                           </li>
-                          <li class="nav-item" style="margin-right: 2.5pc">
+                          <li class="nav-item" style="margin-right:5pc">
                             <a class="nav-link" href="{{url('/man')}}">Mans</a>
                           </li>
-                          <li class="nav-item" style="margin-right: 2.5pc">
+                          <li class="nav-item" style="margin-right: 5pc">
                             <a class="nav-link text-white" href="{{url('/woman')}}">Womens</a>
                           </li>
-                          <li class="nav-item" style="margin-right: 2.5pc">
+                          <li class="nav-item" style="margin-right: 5pc">
                             <a class="nav-link" href="{{url('/kides')}}">Kids</a>
                           </li>
-                          <li class="nav-item" style="margin-right: 2.5pc">
+                          <li class="nav-item" style="margin-right: 5pc">
                             <a class="nav-link" href="{{url('/fqa')}}">FQA</a>
                           </li>
                         </ul>
