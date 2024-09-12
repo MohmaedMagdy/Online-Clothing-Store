@@ -8,14 +8,11 @@
     <title>Our Products</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/dash.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 
 <body>
-    @if(session('success'))
-        <div class="alert alert-success mt-3">
-            {{ session('success') }}
-        </div>
-    @endif
+  
 
     <div class="container-fluid mt-5">
         <div class="row">
@@ -65,6 +62,59 @@
             </div>
         </div>
     </div>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            @if($errors->any())
+                let errorMessage = '';
+                @foreach ($errors->all() as $error)
+                    errorMessage += '{{ $error }}\n';
+                @endforeach
 
+                Swal.fire({
+                    title: 'Error!',
+                    text: errorMessage,
+                    icon: 'error',
+                    confirmButtonText: 'Try Again'
+                });
+            @elseif(session('email_registered'))
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'This email is already registered. Please use a different email address.',
+                    icon: 'error',
+                    confirmButtonText: 'Try Again'
+                });
+            @elseif(session('success'))
+                Swal.fire({
+                    title: 'Success!',
+                    text: '{{ session('success') }}',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            @endif
+
+            const form = document.getElementById('registerForm');
+
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault(); 
+                    Swal.fire({
+                        title: 'Registration Successful!',
+                        text: 'Thank you for registering. You will be redirected shortly.',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            form.submit();
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
 </html>

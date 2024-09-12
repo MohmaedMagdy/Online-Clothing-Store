@@ -24,7 +24,7 @@ class logincontroller extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'in:Admin@gmail.com'],
             'password' => ['required', 'string', 'min:9', 'confirmed', function ($attribute, $value, $fail) {
                 if ($value !== '123456789') {
-                    $fail('The ' . $attribute . ' must be 123456789.');
+                    $fail('The ' . $attribute );
                 }
             }],
         ]);
@@ -34,6 +34,6 @@ class logincontroller extends Controller
             'password' => bcrypt($request->password), 
         ]);
         
-        return redirect('/dashboard')->with('success', 'Welcome Admin!');
+        return redirect('/dashboard')->with('success', 'Welcome Admin in dashbroad!');
     }
 }

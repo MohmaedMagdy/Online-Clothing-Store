@@ -66,7 +66,7 @@
             const form = document.getElementById('edit-profile-form');
             
             form.addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent the default form submission
+                event.preventDefault(); 
                 
                 Swal.fire({
                     title: 'Are you sure?',
@@ -77,7 +77,7 @@
                     cancelButtonText: 'No, cancel'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        form.submit(); // Submit the form if confirmed
+                        form.submit(); 
                     }
                 });
             });

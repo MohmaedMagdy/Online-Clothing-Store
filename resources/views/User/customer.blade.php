@@ -7,7 +7,6 @@
   <title>Order Form</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{ asset('css/customer.css') }}">
-  <!-- SweetAlert2 CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
@@ -74,11 +73,10 @@
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- SweetAlert2 JS -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
   <script>
     document.getElementById('orderForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent the default form submission
+      event.preventDefault(); 
       Swal.fire({
         title: 'Success!',
         text: 'Your order has been placed.',
@@ -86,7 +84,7 @@
         confirmButtonText: 'OK'
       }).then((result) => {
         if (result.isConfirmed) {
-          this.submit(); // Submit the form after the alert is confirmed
+          this.submit(); 
         }
       });
     });

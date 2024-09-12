@@ -68,7 +68,7 @@
             const deleteBtn = document.getElementById('delete-btn');
             
             deleteForm.addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent the default form submission
+                event.preventDefault(); 
                 Swal.fire({
                     title: 'Are you sure?',
                     text: 'You won\'t be able to revert this!',
@@ -78,7 +78,7 @@
                     cancelButtonText: 'No, cancel'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        deleteForm.submit(); // Submit the form if confirmed
+                        deleteForm.submit(); 
                     }
                 });
             });

@@ -4,28 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
-
-    <!-- SweetAlert2 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 
 <body>
-   @if(session('success'))
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            Swal.fire({
-                title: 'Success!',
-                text: '{{ session('success') }}',
-                icon: 'success',
-                confirmButtonText: 'OK'
-            });
-        });
-    </script>
-    @endif
-
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -34,7 +19,7 @@
                         <h2 class="mb-0">Complete the Form</h2>
                     </div>
                     <div class="card-body">
-                        <form id="registerForm" method="POST" class="form" action="{{ url('/auth') }}">
+                        <form  method="POST" action="{{ url('/auth') }}">
                             @csrf
                             <div class="mb-3">
                                 <label for="name" class="form-label">{{ __('Name') }}</label>
@@ -99,31 +84,55 @@
         </div>
     </div>
 
-    <!-- SweetAlert2 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('registerForm');
+            @if($errors->any())
+                let errorMessage = '';
+                @foreach ($errors->all() as $error)
+                    errorMessage += '{{ $error }}\n';
+                @endforeach
 
-            form.addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent form from submitting the traditional way
-
-                // Show SweetAlert2
                 Swal.fire({
-                    title: 'Registration Successful!',
-                    text: 'Thank you for registering. You will be redirected shortly.',
+                    title: 'Error!',
+                    text: errorMessage,
+                    icon: 'error',
+                    confirmButtonText: 'Try Again'
+                });
+            @elseif(session('email_registered'))
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'This email is already registered. Please use a different email address.',
+                    icon: 'error',
+                    confirmButtonText: 'Try Again'
+                });
+            @elseif(session('success'))
+                Swal.fire({
+                    title: 'Success!',
+                    text: '{{ session('success') }}',
                     icon: 'success',
                     confirmButtonText: 'OK'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        form.submit(); // Submit the form after the alert
-                    }
                 });
-            });
+            @endif
+
+            const form = document.getElementById('registerForm');
+
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault(); 
+                    Swal.fire({
+                        title: 'Registration Successful!',
+                        text: 'Thank you for registering. You will be redirected shortly.',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            form.submit();
+                        }
+                    });
+                });
+            }
         });
     </script>
 </body>

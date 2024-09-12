@@ -34,8 +34,8 @@
     document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.add-to-cart').forEach(button => {
             button.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevents the default link action
-                const url = this.getAttribute('data-url'); // Get the URL from the data-url attribute
+                event.preventDefault(); 
+                const url = this.getAttribute('data-url');
                 
                 Swal.fire({
                     title: 'Added to Cart!',
@@ -43,7 +43,7 @@
                     icon: 'success',
                     confirmButtonText: 'OK'
                 }).then(() => {
-                    window.location.href = url; // Redirect after the alert is closed
+                    window.location.href = url;
                 });
             });
         });

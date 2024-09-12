@@ -34,14 +34,14 @@
     document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.add-to-cart').forEach(button => {
             button.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent the default action of the link
+                event.preventDefault(); 
                 Swal.fire({
                     title: 'Added to Cart',
                     text: `The product "${this.getAttribute('data-product')}" has been added to your cart.`,
                     icon: 'success',
                     confirmButtonText: 'OK'
                 }).then(() => {
-                    window.location.href = this.href; // Redirect after the alert is closed
+                    window.location.href = this.href; 
                 });
             });
         });

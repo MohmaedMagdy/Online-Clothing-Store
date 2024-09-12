@@ -15,18 +15,7 @@ h1 {
     color: #343a40;
     font-weight: 700;
 }
-.alert-success {
-    font-size: 1.2rem;
-    font-weight: bold;
-    background-color: #c3e6cb;
-    border: 2px solid #155724;
-    color: #155724;
-    border-radius: 5px;
-    padding: 20px 25px;
-    margin-top: 20px;
-    letter-spacing: 1px;
-    text-align: center;
-}
+
 .card {
     border: none;
     margin-bottom: 20px;
@@ -60,8 +49,4 @@ h1 {
 .btn-primary:hover {
     background-color: #0056b3;
     border-color: #004085;
-}
-.alert-danger {
-    border-radius: 6px;
-    font-size: 0.875rem;
 }

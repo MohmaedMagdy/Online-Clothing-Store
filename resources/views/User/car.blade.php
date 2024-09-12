@@ -73,7 +73,6 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Handle quantity change
         document.querySelectorAll('.update-form input[name="quantity"]').forEach(input => {
             input.addEventListener('change', function() {
                 const form = this.form;
@@ -86,16 +85,14 @@
                     cancelButtonText: 'No, cancel'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        form.submit(); // Automatically submit the form on change
+                        form.submit(); 
                     }
                 });
             });
         });
-
-        // Handle delete button click
         document.querySelectorAll('.delete-form').forEach(form => {
             form.addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent the default form submission
+                event.preventDefault();
                 Swal.fire({
                     title: 'Are you sure?',
                     text: 'You won\'t be able to revert this!',
@@ -105,22 +102,17 @@
                     cancelButtonText: 'No, keep it'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        form.submit(); // Submit the form if confirmed
+                        form.submit(); 
                     }
                 });
             });
         });
-
-        // Handle checkout button click
         const checkoutBtn = document.getElementById('checkout-btn');
         checkoutBtn?.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent the default action
-
-            // Determine if the cart is empty by checking the count of cart items
+            event.preventDefault(); 
             const cartIsEmpty = @json(count(session('cart')) === 0);
 
             if (cartIsEmpty) {
-                // Show a warning message if the cart is empty
                 Swal.fire({
                     title: 'Your cart is empty!',
                     text: 'Please add items to your cart before checking out.',
@@ -129,7 +121,6 @@
                     confirmButtonText: 'OK'
                 });
             } else {
-                // Show a confirmation message if the cart is not empty
                 Swal.fire({
                     title: 'Proceed to checkout?',
                     text: 'Are you sure you want to check out?',
@@ -139,7 +130,6 @@
                     cancelButtonText: 'No, cancel'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        // Redirect to the checkout page if confirmed
                         window.location.href = "{{ url('/check') }}";
                     }
                 });
