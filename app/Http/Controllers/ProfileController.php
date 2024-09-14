@@ -48,6 +48,7 @@ class ProfileController extends Controller
 
     public function destroy($id)
     {
+         register::destroy($id);
         return redirect('/')->with('success', 'Profile deleted successfully.');
     }
   
